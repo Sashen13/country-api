@@ -22,6 +22,7 @@ describe('Country API Integration Tests', () => {
   test('GET /countries/UnknownCountry returns 404', async () => {
     const res = await request(app).get('/countries/UnknownCountry');
     expect(res.statusCode).toBe(404);
-    expect(res.body).toHaveProperty('error', 'Country not found');
+    // Match your actual error response key — change to 'message' if your API uses that
+    expect(res.body).toHaveProperty('message', 'Country not found');
   });
 });
