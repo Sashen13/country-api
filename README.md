@@ -1,83 +1,81 @@
-Countries API
-A simple RESTful API built with Node.js and Express to retrieve country information. The API supports fetching a list of countries (with flags) and details of a specific country (capital and population), defined using OpenAPI (Swagger) spec.
+# Countries API
 
-Features
-GET /countries — Returns a list of all countries (name + flag)
+A simple RESTful API built with Node.js and Express to retrieve country information. The API supports fetching a list of countries (with flags) and details of a specific country (capital and population), defined using the OpenAPI (Swagger) specification.
 
-GET /countries/:name — Returns details about a specific country (name, population, capital)
+## Features
 
-Follows REST best practices
+- GET /countries — Returns a list of all countries (name + flag)
+- GET /countries/:name — Returns details about a specific country (name, capital, population)
+- Follows RESTful best practices
+- Fully local — no external databases or APIs
+- Containerized with Docker for easy deployment
+- Unit and integration tests with Jest + Supertest
 
-Containerized with Docker for easy deployment
+## Tech Stack
 
-Fully local, no external databases or APIs needed
+- Node.js + Express
+- Docker (for containerization)
+- Jest + Supertest (for testing)
+- Static JSON file as mock data
 
-Tech Stack
-Node.js + Express
+## Project Structure
 
-Docker (for containerization)
-
-JSON file as mock data
-
-Optional: Jest + Supertest for testing
-
-Project Structure
-kotlin
-Copy
-Edit
 countries-api/
-├── app.js  
-├── controllers/  
-│   └── countryController.js  
-├── routes/  
-│   └── countryRoutes.js  
-├── services/  
-│   └── countryService.js  
-├── data/  
-│   └── countries.json  
-├── Dockerfile  
-├── .dockerignore  
+├── app.js
+├── controllers/
+│ └── countryController.js
+├── routes/
+│ └── countryRoutes.js
+├── services/
+│ └── countryService.js
+├── data/
+│ └── countries.json
+├── test/
+│ ├── integration/
+│ └── unit/
+├── Dockerfile
+├── .openapi.yaml
+├── .dockerignore
+├── .package.json
 └── README.md
-Prerequisites
-Node.js (https://nodejs.org) — only required if not using Docker
 
-Docker (https://www.docker.com/products/docker-desktop)
+## Prerequisites
 
-A browser or API tool like Postman or curl
+- Node.js (https://nodejs.org) — if not using Docker
+- Docker (https://www.docker.com/products/docker-desktop)
+- API tool (e.g., Postman, Insomnia) or browser/curl for testing
 
-Running with Docker
-1. Make sure Docker is installed and running
-Download Docker Desktop from: https://www.docker.com/products/docker-desktop
-Verify installation:
+## Running with Docker
 
-bash
-Copy
-Edit
-docker --version
-2. Build the Docker image
-bash
-Copy
-Edit
-docker build -t countries-api .
+1. Ensure Docker is installed  
+   Download Docker Desktop: https://www.docker.com/products/docker-desktop
+
+   Verify installation:
+   ```bash
+   docker --version
+
+2. Build the docker image
+  docker build -t countries-api .
+
 3. Run the container
-bash
-Copy
-Edit
-docker run -p 3000:3000 countries-api
-4. Visit the API
-http://localhost:3000/countries
+  docker run -p 3000:3000 countries-api
 
-http://localhost:3000/countries/France
+4. Accessing the API
+  http://localhost:3000/countries
+  http://localhost:3000/countries/France
 
-Running Locally Without Docker
-1. Clone the project and install dependencies
+## Running with Docker Locally
+
+Clone the project and install dependencies
+
 bash
 Copy
 Edit
 git clone https://github.com/yourusername/countries-api.git
 cd countries-api
 npm install
-2. Start the server
+Start the server
+
 bash
 Copy
 Edit
@@ -86,7 +84,6 @@ Server runs at: http://localhost:3000
 
 Example Responses
 GET /countries
-
 json
 Copy
 Edit
@@ -95,7 +92,6 @@ Edit
   { "name": "Germany", "flag": "🇩🇪" }
 ]
 GET /countries/France
-
 json
 Copy
 Edit
@@ -105,8 +101,6 @@ Edit
   "population": 67000000
 }
 OpenAPI Specification (Excerpt)
-This API follows the OpenAPI 3.0 format:
-
 yaml
 Copy
 Edit
@@ -124,9 +118,9 @@ Edit
       - name: name
         in: path
         required: true
+
 Stopping the Server
-If running in the terminal:
-Press Ctrl + C
+If running in the terminal: Press Ctrl + C
 
 Author
 Built by Sashen Govender
