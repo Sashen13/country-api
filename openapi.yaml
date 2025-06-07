@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info:
+  title: Countries API
+  version: 1.0.0
+paths:
+  /countries:
+    get:
+      summary: Get all countries or search by name
+      parameters:
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Country list or detail
+          content:
+            application/json:
+              schema:
+                type: object

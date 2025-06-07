@@ -1,0 +1,14 @@
+[
+  {
+    "name": "France",
+    "flag": "🇫🇷",
+    "capital": "Paris",
+    "population": 67000000
+  },
+  {
+    "name": "Germany",
+    "flag": "🇩🇪",
+    "capital": "Berlin",
+    "population": 83000000
+  }
+]
