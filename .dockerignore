@@ -1,0 +1,33 @@
+# Node modules
+node_modules
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Test-related
+coverage/
+test/
+__tests__/
+*.spec.js
+*.test.js
+
+# IDE/editor folders
+.vscode/
+.idea/

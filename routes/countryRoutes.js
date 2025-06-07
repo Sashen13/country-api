@@ -1,8 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/countryController');
+const { getAllCountries, getCountryDetails } = require('../services/countryService');
 
-router.get('/countries', controller.getAllCountries);
-router.get('/countries/:name', controller.getCountryDetails);
+router.get('/countries', async (req, res) => {
+  const countries = await getAllCountries();
+  res.json(countries);
+});
+
+router.get('/countries/:name', async (req, res) => {
+  const country = await getCountryDetails(req.params.name);
+  if (!country) return res.status(404).json({ message: 'Country not found' });
+  res.json(country);
+});
 
 module.exports = router;
